@@ -1,0 +1,41 @@
+name: nanopi-neo-kernel
+summary: Minimal kernel for the NanoPi NEO
+version: 4.10.8-alpha.1
+type: kernel
+
+description: |
+  Kernel for the NanoPi NEO with the bare minimum drivers and modules.
+
+  See https://github.com/fuzeman/nanopi-neo-kernel for details.
+
+architectures: [armhf]
+confinement: strict
+grade: devel
+
+parts:
+    kernel:
+        plugin: kernel
+
+        source: https://github.com/fuzeman/linux-ubuntu-zesty.git
+        source-commit: b3793a6ca016740dc3393a873e01b8a5a835b970
+        source-depth: 1
+        source-type: git
+
+        build-packages: [bc, cpio, kmod, libssl-dev]
+
+        kdefconfig: ['--makefile=debian/snapcraft.mk', 'branch=sunxi','flavour=nanopi-neo', 'config']
+        kernel-image-target: zImage
+
+        kconfigs:
+          - CONFIG_LOCALVERSION="-nanopi-neo"
+          - CONFIG_SQUASHFS=m
+          - CONFIG_DEVPTS_MULTIPLE_INSTANCES=y
+
+        kernel-initrd-modules:
+          - squashfs
+
+        kernel-device-trees:
+          - sun8i-h3-nanopi-neo
+
+        prepare: |
+          touch .scmversion
