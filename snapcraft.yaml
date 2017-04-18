@@ -21,7 +21,12 @@ parts:
         source-depth: 1
         source-type: git
 
-        build-packages: [bc, cpio, kmod, libssl-dev]
+        build-packages:
+          - bc
+          - cpio
+          - kmod
+          - libc6-dev
+          - libssl-dev
 
         kdefconfig: ['--makefile=debian/snapcraft.mk', 'branch=sunxi','flavour=nanopi-neo', 'config']
         kernel-image-target: zImage
