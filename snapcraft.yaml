@@ -1,6 +1,6 @@
 name: nanopi-neo-kernel
 summary: Minimal kernel for the NanoPi NEO
-version: 4.10.0-2000.1
+version: 4.10.0-2000.1-beta.1
 type: kernel
 
 description: |
