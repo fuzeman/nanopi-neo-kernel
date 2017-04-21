@@ -1,6 +1,6 @@
 name: nanopi-neo-kernel
 summary: Minimal kernel for the NanoPi NEO
-version: 4.10.0-2001.2-beta.1
+version: 4.10.0-2001.2-beta.2
 type: kernel
 
 description: |
@@ -32,7 +32,7 @@ parts:
         kernel-image-target: zImage
 
         fm-kernel-flavour: nanopi-neo
-        fm-kernel-version: 4.10.0-2000.1
+        fm-kernel-version: 4.10.0-2001.2
 
         kconfigs:
           - CONFIG_SQUASHFS=m
